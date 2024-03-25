@@ -1,0 +1,74 @@
+﻿@using LawProject.Models;
+@model List<CaseStudies>
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Case Studies</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Home</a>
+                <a href="">Case Studies</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Case Studies Start -->
+<div class="portfolio">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Case Studies</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".first">Civil</li>
+                    <li data-filter=".second">Criminal</li>
+                    <li data-filter=".third">Business</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row portfolio-container">
+            <!--foreach-->
+            
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item second">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/img/@item.Image" alt="Portfolio Image"><!--portfolio-2.jpg-->
+                        <figure>
+                            <p>@item.Title</p>
+                            <a href="#">@item.SubTitle</a>
+                            <span>@item.Date</span>
+                        </figure>
+                    </div>
+                </div>
+
+            }
+            
+        </div>
+        <div class="row">
+            <div class="col-12 load-more">
+                <a class="btn" href="#">Load More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Case Studies Start -->
+<!-- Newsletter Start -->
+<div class="newsletter">
+    <div class="container">
+        <div class="section-header">
+            <h2>Subscribe Our Newsletter</h2>
+        </div>
+        <div class="form">
+            <input class="form-control" placeholder="Email here">
+            <button class="btn">Submit</button>
+        </div>
+    </div>
+</div>
+<!-- Newsletter End -->

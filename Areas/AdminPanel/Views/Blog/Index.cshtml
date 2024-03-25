@@ -1,0 +1,91 @@
+﻿@using LawProject.Models;
+@model List<Blog>
+
+@{
+    int count = 1;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Blog</h4>
+
+            <a asp-controller="Blog" asp-action="Create" type="button" class="btn btn-info">Add Blog</a>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sira Nomresi
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Civil Law
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th>
+                                Subtitle
+                            </th>
+                            <th>
+                                Kategoriya
+                            </th>
+
+                            <th>
+                                Setting
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (Blog item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(count++)
+                                </td>
+
+                                <td>
+                                    @item.Image
+                                </td>
+
+                                <td>
+                                    @item.Title
+                                </td>
+                                <td>
+                                    @item.CivilLaw
+                                </td>
+                                <td>
+                                    @item.Date
+                                </td>
+                                <td>
+                                    @item.Subtitle
+                                </td>
+                                    <td>
+                                    @foreach (BlogCategory blogCat in item.BlogCategories)
+                                    {
+                                                <p>@blogCat.Category.Name</p>
+                                    }
+                                    </td>
+                                <td>
+                                    <a asp-controller="Blog" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a asp-controller="Blog" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

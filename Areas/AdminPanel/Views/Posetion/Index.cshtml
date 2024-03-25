@@ -1,0 +1,47 @@
+﻿@using LawProject.Models;
+@model List<Position>
+@{
+    int count=1;
+}
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Positions</h4>
+
+            <a asp-controller="Posetion" asp-action="Create" type="button" class="btn btn-info">Add Position</a>
+
+            <p class="card-description">
+               
+            </p>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sira nomresi</th>
+                            <th>Vezife</th>
+                            <th>Setting</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Position item in Model)
+                        {
+                            <tr>
+                                <td>@(count++)</td>
+                                <td>@item.Name</td>
+                                
+                                <td>
+                                    <a asp-controller="Posetion" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a asp-controller="Posetion" asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+
+                            </tr>
+                        }
+                       
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

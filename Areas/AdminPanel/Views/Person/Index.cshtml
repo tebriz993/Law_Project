@@ -1,0 +1,70 @@
+﻿@using LawProject.Models;
+@model List<Person>
+
+@{
+    int count = 1;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Perosn</h4>
+
+            <a asp-controller="Person" asp-action="Create" type="button" class="btn btn-info">Add Position</a>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sira Nomresi
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Surname
+                            </th>
+                            <th>
+                                Vezifesi
+                            </th>
+                            
+                            <th>
+                                Setting
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (Person item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(count++)
+                                </td>
+                                
+                                <td>
+                                    @item.Name
+                                </td>
+
+                                <td>
+                                    @item.Surname
+                                </td>
+                                <td>
+                                    @item.Profession.Name
+                                </td>
+                                <td>
+                                    <a asp-controller="Person" asp-action="update" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a asp-controller="Person" asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@using LawProject.Models;
+@model Position
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label asp-for="Name">
+                        PositionName
+                    </label>
+                    <input asp-for="Name" type="text" class="form-control" placeholder="Name"/>
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+
+            </form>
+        </div>
+    </div>
+</div>

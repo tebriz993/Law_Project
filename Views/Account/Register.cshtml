@@ -1,0 +1,52 @@
+﻿@using LawProject.ViewModels.Account
+@model RegisterVM
+
+
+<div class="row flex-center min-vh-100 py-6">
+    <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4"">
+        <a class="d-flex flex-center mb-4" href="../../../index.html" ><img class="me-2" src="~/assets/img/favicons/Logo1.png" alt="" width="200" /></a>
+   <div class="card">
+       <div class="card-body p-2 p-sm-5">
+           <div class="row flex-between-center mb-2">
+               <div class="col-auto">
+                   <h3>Register</h3>
+               </div>
+           </div>
+
+           <form method="post">
+                    <div class="mb-3">
+                        <input asp-for="Name" placeholder="Name"/>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <input asp-for="Surname" placeholder="Surname" />
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input asp-for="Username" placeholder="Username" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input asp-for="Email" placeholder="Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input asp-for="Password" placeholder="Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input asp-for="ConfirmPassword" placeholder="ConfirmPassword" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    @* <div style="color: red;" asp-validation-summary="ModelOnly">
+
+                    </div> *@
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="basic-register-checkbox"/><label>I accept privacy policy</label></div>
+                    <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit" name="Submit">Register</button></div>
+           </form>
+       </div>
+   </div>
+    </div>
+</div>

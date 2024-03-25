@@ -1,0 +1,91 @@
+﻿@using LawProject.Models;
+@model List<Employee>
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Attorneys</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Home</a>
+                <a href="">Attorneys</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- About Start -->
+<div class="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="~/assets/img/about.jpg" alt="Image">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+                <div class="section-header">
+                    <h2>About Attorneys</h2>
+                </div>
+                <div class="about-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. Aliquam interdum at lacus non blandit.
+                    </p>
+                    <a class="btn" href="">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Attorney Start -->
+<div class="team">
+    <div class="container">
+        <div class="section-header">
+            <h2>Attorneys</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="~/assets/img/@item.Image" alt="Team Image"><!--team-1.jpg-->
+                        </div>
+                        <div class="team-text">
+                            <h2>@item.FullName</h2>
+                            <p>@item.Position.Name</p>
+                            <div class="team-social">
+                                <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+            
+        </div>
+    </div>
+</div>
+<!-- Attorney End -->
+<!-- Newsletter Start -->
+<div class="newsletter">
+    <div class="container">
+        <div class="section-header">
+            <h2>Subscribe Our Newsletter</h2>
+        </div>
+        <div class="form">
+            <input class="form-control" placeholder="Email here">
+            <button class="btn">Submit</button>
+        </div>
+    </div>
+</div>
+<!-- Newsletter End -->

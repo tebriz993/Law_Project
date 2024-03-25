@@ -1,0 +1,74 @@
+﻿@using LawProject.Models;
+@model List<CaseStudies>
+
+@{
+    int count = 1;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Case Studies</h4>
+
+            <a asp-controller="CaseStudies" asp-action="Create" type="button" class="btn btn-info">Add Position</a>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sira Nomresi
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Subtitle
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th>
+                                Setting
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                       @foreach (CaseStudies item in Model)
+                       {
+                            <tr>
+                                <td>
+                                    @(count++)
+                                </td>
+                                <td class="py-1">
+                                    <img src="~/assets/img/@item.Image" alt="image"/>
+                                </td>
+                                <td>
+                                    @item.Title
+                                </td>
+                                
+                                <td>
+                                    @item.SubTitle
+                                </td>
+                                <td>
+                                    @item.Date
+                                </td>
+                                <td>
+                                    <a asp-controller="CaseStudies" asp-action="update" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a asp-controller="CaseStudies" asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                       }
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

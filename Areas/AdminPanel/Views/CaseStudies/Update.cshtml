@@ -1,0 +1,46 @@
+﻿@using LawProject.Models;
+@model CaseStudies
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Case Studies</h4>
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div>
+                                <img src="~/assets/img/@Model.Image" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photo">Photo</label>
+                                <input asp-for="Photo" type="text" class="form-control" placeholder="Name" />
+
+                                <span asp-validation-for="Photo"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Title">Title</label>
+                                <input asp-for="Title" type="text" class="form-control" value="@Model.Title"  placeholder="Name" />
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="SubTitle">Subtitle</label>
+                                <input asp-for="SubTitle" type="text" class="form-control" value="@Model.SubTitle"  placeholder="Name" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Date">Subtitle</label>
+                                <input asp-for="Date" type="text" class="form-control" value="@Model.Date" placeholder="Name" />
+                            </div>
+                            
+
+                            
+
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

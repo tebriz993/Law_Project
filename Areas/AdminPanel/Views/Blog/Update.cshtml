@@ -1,0 +1,71 @@
+﻿@using LawProject.ViewModels.Blog;
+@model UpdateBlogVM
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update</h4>
+
+            <form class="forms-sample" method="post">
+
+                <div class="form-group">
+                    <label asp-for="Title">
+                        Isci adi
+                    </label>
+                    <input asp-for="Title" type="text" class="form-control" placeholder="Name" value="@Model.Title" />
+                    <span asp-validation-for="Title"></span>
+                </div>
+
+                @* <div class="form-group">
+                <label asp-for="Surname">
+                Isci soyadi
+                </label>
+                <input asp-for="Surname" type="text" class="form-control" placeholder="Name" />
+                <span asp-validation-for="Surname"></span>
+                </div> *@
+
+                <div class="multiselect">
+                    <div class="selectBox" onclick="showCheckboxes('categoryCheckboxes')">
+                        <h5>Category</h5>
+                        <select>
+                            <option>
+                                Secim
+                            </option>
+                        </select>
+                        <div class="overSelect"></div>
+                    </div>
+
+                    <div id="categoryCheckboxes" class="checkbox-container">
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <div>
+                                <input type="checkbox" name="CategoryIds" value="@category.Id" />
+                                @category.Name
+                            </div>
+                        }
+                    </div>
+
+                    <span asp-validation-for="CategoryIds" class="text-danger"></span>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function showCheckboxes(checkboxesId) {
+        var checkboxes = document.getElementById(checkboxesId);
+        if (checkboxes.style.display === "none") {
+            checkboxes.style.display = "block";
+        }
+        else {
+            checkboxes.style.display = "none";
+        }
+    }
+</script>

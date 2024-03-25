@@ -1,0 +1,47 @@
+﻿@using LawProject.Models;
+@model Person
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create</h4>
+            <form class="forms-sample" method="post">
+
+                <div class="form-group">
+                    <label asp-for="Name">
+                        Isci adi
+                    </label>
+                    <input asp-for="Name" type="text" class="form-control" placeholder="Name" value="@Model.Name" />
+                    <span asp-validation-for="Name"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Surname">
+                        Iscii soyadi
+                    </label>
+                    <input asp-for="Surname" type="text" class="form-control" placeholder="Name" value="@Model.Surname" />
+                    <span asp-validation-for="Surname"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PrefessionId">
+                        Isci Vezifesi
+                    </label>
+                    <select asp-for="PrefessionId"></select>
+                    <option selected disabled>Secim</option>
+                    @foreach (Profession item in ViewBag.Profession)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                    <select />
+                    <span asp-validation-for="PrefessionId"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
